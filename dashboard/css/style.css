@@ -1,0 +1,477 @@
+/* ==========================================================
+   GLOBAL
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:#0f172a;
+
+    color:white;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+.background-blur{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(circle at top left,#2563eb55,transparent 45%),
+
+        radial-gradient(circle at bottom right,#06b6d455,transparent 45%),
+
+        #0f172a;
+
+    z-index:-2;
+
+}
+
+.background-blur::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    backdrop-filter:blur(60px);
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.container-card{
+
+    width:100%;
+
+    max-width:900px;
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.title{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    color:white;
+
+}
+
+.subtitle{
+
+    color:#cbd5e1;
+
+    font-size:16px;
+
+}
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.label-title{
+
+    display:block;
+
+    margin-bottom:15px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.textarea{
+
+    width:100%;
+
+    resize:none;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:18px;
+
+    background:#1e293b;
+
+    color:white;
+
+    padding:20px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.textarea:focus{
+
+    box-shadow:
+
+        0 0 0 3px #38bdf855;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.predict-button{
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#38bdf8;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.predict-button:hover{
+
+    background:#0ea5e9;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.loader{
+
+    width:60px;
+
+    height:60px;
+
+    margin:auto;
+
+    border:5px solid rgba(255,255,255,.2);
+
+    border-top:5px solid #38bdf8;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+.loading-text{
+
+    margin-top:20px;
+
+    color:#cbd5e1;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================================
+   RESULT
+========================================================== */
+
+.result-card{
+
+    margin-top:35px;
+
+    background:#111827;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    animation:fade .5s ease;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.result-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.result-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+.small-title{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+}
+
+.label-result{
+
+    margin-top:10px;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.confidence-result{
+
+    margin-top:10px;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#38bdf8;
+
+}
+
+.divider{
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    margin:30px 0;
+
+}
+
+/* ==========================================================
+   PROBABILITY
+========================================================== */
+
+.probability-item{
+
+    margin-bottom:18px;
+
+}
+
+.probability-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#334155;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    height:100%;
+
+    border-radius:30px;
+
+    transition:width .6s ease;
+
+}
+
+/* ==========================================================
+   COPY BUTTON
+========================================================== */
+
+.copy-button{
+
+    margin-top:30px;
+
+    width:100%;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    cursor:pointer;
+
+    background:#10b981;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.copy-button:hover{
+
+    background:#059669;
+
+}
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.hidden{
+
+    display:none;
+
+}
+
+.positive{
+
+    color:#22c55e;
+
+}
+
+.negative{
+
+    color:#ef4444;
+
+}
+
+.neutral{
+
+    color:#f59e0b;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+    .container-card{
+
+        padding:25px;
+
+    }
+
+    .title{
+
+        font-size:30px;
+
+    }
+
+    .result-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

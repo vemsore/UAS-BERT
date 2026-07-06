@@ -1,0 +1,32 @@
+UAS-BERT-2313500122
+│
+├── app/
+│
+├── backend/
+│
+├── dashboard/
+│
+├── review/
+│
+├── dataset/
+│
+│   ├── raw/
+│   ├── processed/
+│   ├── gold/
+│   └── split/
+│
+├── model/
+│
+│   ├── pretrained/
+│   ├── tokenizer/
+│   └── best_model/
+│
+├── output/
+│
+│   ├── evaluation/
+│   └── logs/
+│
+├── requirements.txt
+├── package.json
+├── README.md
+└── .gitignore

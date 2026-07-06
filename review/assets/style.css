@@ -1,0 +1,27 @@
+body{
+
+background:#eef2f7;
+
+}
+
+.card{
+
+border-radius:15px;
+
+}
+
+.border{
+
+min-height:60px;
+
+background:white;
+
+}
+
+.badge{
+
+font-size:14px;
+
+padding:8px 12px;
+
+}
