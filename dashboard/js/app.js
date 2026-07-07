@@ -4,7 +4,7 @@ IndoBERT Dashboard
 ==========================================================
 */
 
-const API_URL = "uas-bert-production.up.railway.app/predict";
+const API_URL = "https://uas-bert-production.up.railway.app";
 
 const inputText = document.getElementById("inputText");
 const predictBtn = document.getElementById("predictBtn");
@@ -57,7 +57,7 @@ async function predictSentiment() {
 
     try {
 
-        const response = await fetch(API_URL, {
+        const response = await fetch(`${API_URL}/predict`,{
 
             method: "POST",
 
@@ -87,13 +87,21 @@ async function predictSentiment() {
 
     }
 
-    catch (err) {
+    catch(error){
 
-        alert("Tidak dapat terhubung ke FastAPI.");
+    console.error(error);
 
-        console.error(err);
+    if(error instanceof TypeError){
+
+        alert("Tidak dapat menghubungi server Railway.");
+
+    }else{
+
+        alert("Terjadi kesalahan saat memproses data.");
 
     }
+
+}
 
     finally {
 
@@ -224,3 +232,41 @@ function capitalize(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
 
 }
+async function checkAPI(){
+
+    try{
+
+        const response = await fetch(API_URL);
+
+        if(response.ok){
+
+            console.log("API Connected");
+
+        }else{
+
+            console.log("API Error");
+
+        }
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        alert("Backend Railway sedang offline.");
+
+    }
+
+}
+
+checkAPI();
+const controller = new AbortController();
+
+const timeout = setTimeout(()=>{
+
+controller.abort();
+
+},30000);
+
+clearTimeout(timeout);
