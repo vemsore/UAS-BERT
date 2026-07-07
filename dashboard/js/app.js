@@ -4,7 +4,7 @@ IndoBERT Dashboard
 ==========================================================
 */
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "uas-bert-production.up.railway.app/predict";
 
 const inputText = document.getElementById("inputText");
 const predictBtn = document.getElementById("predictBtn");

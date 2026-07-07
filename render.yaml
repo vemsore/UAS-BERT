@@ -1,0 +1,16 @@
+services:
+  - type: web
+
+    name: uas-bert-api
+
+    runtime: python
+
+    plan: free
+
+    buildCommand: |
+      pip install -r requirements.txt
+
+    startCommand: |
+      bash start.sh
+
+    autoDeploy: true
