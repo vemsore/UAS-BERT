@@ -25,9 +25,15 @@ from transformers import (
 
 ROOT = Path(__file__).resolve().parents[2]
 
-LOCAL_MODEL_DIR = ROOT / "model" / "best_model"
-
 LABEL_ENCODER = ROOT / "model" / "label_encoder.pkl"
+
+MODEL_DIR = Path(download_model())
+assert (MODEL_DIR / "config.json").exists()
+assert (MODEL_DIR / "model.safetensors").exists()
+assert (MODEL_DIR / "tokenizer.json").exists()
+tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
+
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR)
 
 # ==========================================================
 # LOAD MODEL
